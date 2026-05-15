@@ -41,7 +41,7 @@ export default function GreenPaprikaHome() {
             <div className="gp-flyer-panel">
               <img
                 className="gp-flyer"
-                src="/green-paprika/jvs_event_files/jvs-event-flyer.webp"
+                src="./jvs_event_files/jvs-event-flyer.webp"
                 alt="Green Paprika supper flyer with Hungarian dishes."
                 width="960"
                 height="640"
@@ -128,7 +128,7 @@ export default function GreenPaprikaHome() {
             <div className="gp-actions">
               <a
                 className="gp-button gp-button-secondary gp-button-previous"
-                href="/green-paprika/chapel-market-kitchen-popup.html"
+                href="./chapel-market-kitchen-popup.html"
               >
                 Previous Event
               </a>
