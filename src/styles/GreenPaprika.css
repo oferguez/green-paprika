@@ -102,17 +102,17 @@
 
 .gp-details {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
   margin-bottom: 14px;
-  padding: 12px;
-  border: 1px solid rgba(68, 107, 51, 0.55);
+  padding: 10px;
+  border: 1px solid var(--gp-accent);
   border-radius: 14px;
   align-items: stretch;
 }
 
 .gp-detail-card {
-  padding: 8px 10px;
+  padding: 8px;
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.55);
   border: 1px solid rgba(126, 46, 36, 0.12);
@@ -120,18 +120,18 @@
 
 .gp-detail-label {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   color: var(--gp-muted);
-  font-size: 0.68rem;
+  font-size: 0.64rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .gp-detail-value {
   display: block;
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   line-height: 1.2;
-  color: var(--gp-accent-green);
+  color: var(--gp-accent);
 }
 
 .gp-actions {

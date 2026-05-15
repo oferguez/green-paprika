@@ -3,7 +3,8 @@ import '../styles/GreenPaprika.css';
 const eventDetails = [
   { label: 'Date', value: 'Tuesday, 2 June 2026' },
   { label: 'Time', value: '19:00' },
-  { label: 'Location', value: 'TBC, London' },
+  { label: 'Location', value: 'JVS' },
+  { label: 'Price', value: '£30' },
 ];
 
 const menuItems = [
