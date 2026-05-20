@@ -84,6 +84,8 @@ Option B: better longer-term architecture
 
 ## Priority 2: Static Asset Caching
 
+Status: will not be applied
+
 ### Problem
 
 `Use efficient cache lifetimes — Est savings 2,716 KiB`
@@ -109,6 +111,8 @@ Serve versioned assets with long cache lifetimes.
 - Repeat PageSpeed runs no longer flag cache lifetime as a major opportunity.
 
 ## Priority 3: Reduce JS and Render Blocking
+
+Status: will not be applied
 
 ### Problems
 
