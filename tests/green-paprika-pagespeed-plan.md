@@ -147,6 +147,8 @@ If keeping the page in React:
 
 ## Priority 4: Console Errors and Response Diagnostics
 
+Status: done
+
 ### Problems
 
 - `Browser errors were logged to the console`
@@ -172,15 +174,28 @@ If keeping the page in React:
 
 ## Priority 5: Security / Best Practices Cleanup
 
+Status: partially in scope
+
+Deferred note: the remaining in-scope items in this section require host-level response header control. The current site is deployed via GitHub Pages from this repo, and this repo does not provide a way to enforce those headers directly. Since hosting will not be changed at this stage, these items are deferred for now.
+
 ### Problems
 
 Manual best-practice checks in the report call out missing or unverified protections:
 
-- CSP
-- HSTS
-- COOP
-- XFO or CSP anti-clickjacking
-- Trusted Types
+- CSP — will not be applied
+- HSTS — to do
+- COOP — to do
+- XFO or CSP anti-clickjacking — to do
+- Trusted Types — will not be applied
+
+### Deferred Required Actions
+
+- `Strict-Transport-Security (HSTS)`:
+  configure the host or a proxy/CDN in front of the host to send a `Strict-Transport-Security` header on HTTPS responses.
+- `X-Frame-Options`:
+  configure the host or a proxy/CDN in front of the host to send `X-Frame-Options: DENY` or `SAMEORIGIN`.
+- `Cross-Origin-Opener-Policy (COOP)`:
+  configure the host or a proxy/CDN in front of the host to send `Cross-Origin-Opener-Policy: same-origin`.
 
 ### Required Fixes
 
