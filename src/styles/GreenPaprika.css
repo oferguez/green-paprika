@@ -87,6 +87,37 @@
   color: var(--gp-accent-green);
 }
 
+.gp-title {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.gp-title h1 {
+  margin-bottom: 0;
+}
+
+.gp-title-home-link {
+  display: inline-flex;
+  flex: 0 0 auto;
+  border-radius: 50%;
+}
+
+.gp-title-home-link:focus-visible {
+  outline: 3px solid var(--gp-accent);
+  outline-offset: 3px;
+}
+
+.gp-title-pepper {
+  display: block;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .gp-page h2 {
   margin-bottom: 6px;
   font-size: 0.95rem;

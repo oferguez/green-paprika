@@ -76,7 +76,12 @@ export default function GreenPaprikaHome() {
           </aside>
 
           <section className="gp-panel gp-content-panel">
-            <h1>Green Paprika Hungarian Supper</h1>
+            <div className="gp-title">
+              <a className="gp-title-home-link" href="/" aria-label="Green Paprika home">
+                <img className="gp-title-pepper" src="/green-pepper.jpg" alt="" />
+              </a>
+              <h1>Green Paprika Hungarian Supper</h1>
+            </div>
             <p className="gp-note">
               Join for a special mid-week dinner of plant-based Hungarian dishes, inspired by my
               family recipes I grew up with.
@@ -131,7 +136,7 @@ export default function GreenPaprikaHome() {
                 className="gp-button gp-button-secondary gp-button-previous"
                 href="/chapel-market-kitchen-popup.html"
               >
-                Previous Event
+                Chaper Market Kitchen Popup
               </a>
               <a
                 className="gp-social-icon-button"

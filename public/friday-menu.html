@@ -9,8 +9,8 @@
       content="Order vegan Hungarian food from Green Paprika's Friday menu for delivery across London."
     />
     <link rel="canonical" href="https://green-paprika.com/friday-menu.html" />
-    <link rel="icon" type="image/svg+xml" href="pepper.svg" />
-    <link rel="apple-touch-icon" href="pepper.svg" />
+    <link rel="icon" type="image/jpeg" href="green-pepper.jpg" />
+    <link rel="apple-touch-icon" href="green-pepper.jpg" />
     <style>
       :root {
         --gp-paper: #f7e9d5;
@@ -29,8 +29,10 @@
       }
 
       body {
-        min-height: 100vh;
+        height: 100vh;
+        height: 100dvh;
         margin: 0;
+        overflow: hidden;
         background:
           radial-gradient(circle at top left, rgba(255, 255, 255, 0.42), transparent 28%),
           linear-gradient(180deg, #f8eddc 0%, var(--gp-paper) 100%);
@@ -49,9 +51,13 @@
       }
 
       .gp-shell {
-        width: min(1120px, calc(100% - 24px));
+        display: grid;
+        grid-template-rows: auto minmax(0, 1fr) auto;
+        gap: 8px;
+        width: min(1440px, calc(100% - 20px));
+        height: 100%;
         margin: 0 auto;
-        padding: 18px 0 28px;
+        padding: 8px 0;
       }
 
       .gp-hero,
@@ -65,22 +71,31 @@
       .gp-hero {
         display: grid;
         grid-template-columns: auto minmax(0, 1fr) auto;
-        gap: 20px;
+        gap: 18px;
         align-items: center;
-        margin-bottom: 18px;
-        padding: 24px 28px;
+        padding: 14px 22px;
       }
 
       .gp-pepper {
-        width: 82px;
-        height: 82px;
+        width: 64px;
+        height: 64px;
+      }
+
+      .gp-home-link {
+        display: inline-flex;
+        border-radius: 50%;
+      }
+
+      .gp-home-link:focus-visible {
+        outline: 3px solid var(--gp-accent);
+        outline-offset: 3px;
       }
 
       .gp-eyebrow,
       .gp-category {
-        margin: 0 0 5px;
+        margin: 0 0 3px;
         color: var(--gp-accent);
-        font-size: 0.72rem;
+        font-size: 0.78rem;
         font-weight: 700;
         letter-spacing: 0.1em;
         text-transform: uppercase;
@@ -88,15 +103,14 @@
 
       h1,
       h2,
-      h3,
       p {
         margin-top: 0;
       }
 
       h1 {
-        margin-bottom: 7px;
+        margin-bottom: 4px;
         color: var(--gp-green);
-        font-size: clamp(2rem, 5vw, 3.25rem);
+        font-size: 2.1rem;
         line-height: 1;
       }
 
@@ -104,12 +118,13 @@
         max-width: 62ch;
         margin: 0;
         color: var(--gp-muted);
-        line-height: 1.45;
+        font-size: 0.95rem;
+        line-height: 1.35;
       }
 
       .gp-deadline {
-        min-width: 180px;
-        padding: 14px 16px;
+        min-width: 165px;
+        padding: 11px 16px;
         border: 1px solid rgba(126, 46, 36, 0.25);
         border-radius: 15px;
         background: var(--gp-soft);
@@ -127,154 +142,159 @@
       }
 
       .gp-deadline span {
-        margin-top: 3px;
+        margin-top: 2px;
         color: var(--gp-muted);
-        font-size: 0.82rem;
+        font-size: 0.85rem;
       }
 
       .gp-layout {
         display: grid;
-        grid-template-columns: minmax(0, 1.45fr) minmax(310px, 0.75fr);
-        gap: 18px;
-        align-items: start;
+        grid-template-columns: minmax(0, 2.2fr) minmax(300px, 0.8fr);
+        gap: 14px;
+        min-height: 0;
+        align-items: stretch;
       }
 
       .gp-panel {
-        padding: 24px 26px;
+        min-height: 0;
+        padding: 20px 22px;
+        overflow: hidden;
+      }
+
+      .gp-menu-panel {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-rows: auto auto minmax(0, 1fr);
+        column-gap: 24px;
+      }
+
+      .gp-menu-panel > .gp-section-heading,
+      .gp-menu-panel > .gp-section-note {
+        grid-column: 1 / -1;
+      }
+
+      .gp-menu-panel > .gp-section-heading {
+        margin: 8px 0 24px;
+        text-align: center;
+      }
+
+      .gp-menu-panel > .gp-menu-section {
+        grid-row: 3;
+        min-width: 0;
       }
 
       .gp-section-heading {
-        margin-bottom: 7px;
+        margin-bottom: 5px;
         color: var(--gp-green);
-        font-size: 1.55rem;
+        font-size: 1.4rem;
       }
 
       .gp-section-note {
-        margin-bottom: 20px;
+        margin-bottom: 16px;
         color: var(--gp-muted);
-        font-size: 0.92rem;
-        line-height: 1.45;
+        font-size: 0.86rem;
+        line-height: 1.35;
       }
 
       .gp-menu-section + .gp-menu-section {
-        margin-top: 26px;
+        margin-top: 0;
+        padding-left: 24px;
+        border-left: 1px solid var(--gp-line);
       }
 
       .gp-category {
         padding-bottom: 8px;
         border-bottom: 1px solid var(--gp-line);
         color: var(--gp-green);
-        font-size: 0.8rem;
-      }
-
-      .gp-dish {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(185px, auto);
-        gap: 18px;
-        align-items: center;
-        padding: 16px 0;
-        border-bottom: 1px solid var(--gp-line);
-      }
-
-      .gp-dish h3 {
-        margin-bottom: 4px;
-        color: var(--gp-accent);
-        font-size: 1rem;
-        line-height: 1.25;
-      }
-
-      .gp-dish p {
-        margin-bottom: 0;
-        color: var(--gp-muted);
-        font-size: 0.88rem;
-        line-height: 1.4;
-      }
-
-      .gp-options {
-        display: grid;
-        gap: 7px;
+        font-size: 0.82rem;
       }
 
       .gp-option {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) 62px;
-        gap: 8px;
+        grid-template-columns: minmax(0, 1fr) 56px;
+        gap: 10px;
         align-items: center;
+        min-height: 58px;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--gp-line);
       }
 
       .gp-option label {
-        color: var(--gp-ink);
-        font-size: 0.82rem;
-        line-height: 1.2;
+        color: var(--gp-accent);
+        font-size: 0.92rem;
+        font-weight: 700;
+        line-height: 1.3;
       }
 
       .gp-option input {
-        width: 62px;
-        min-height: 34px;
+        width: 56px;
+        min-height: 42px;
         border: 1px solid #9a8d7c;
-        border-radius: 8px;
+        border-radius: 6px;
         background: #fff;
         color: var(--gp-ink);
+        font-size: 0.95rem;
         text-align: center;
       }
 
       .gp-order-panel {
-        position: sticky;
-        top: 18px;
+        position: static;
       }
 
       .gp-total {
         display: flex;
         justify-content: space-between;
         align-items: baseline;
-        margin: 0 0 18px;
-        padding: 14px 0;
+        margin: 0 0 12px;
+        padding: 10px 0;
         border-top: 1px solid var(--gp-line);
         border-bottom: 1px solid var(--gp-line);
       }
 
       .gp-total span {
         color: var(--gp-muted);
-        font-size: 0.88rem;
+        font-size: 0.9rem;
       }
 
       .gp-total output {
         color: var(--gp-accent);
-        font-size: 1.5rem;
+        font-size: 1.35rem;
         font-weight: 700;
       }
 
       .gp-field-row {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        gap: 12px;
       }
 
       .gp-field {
-        margin-bottom: 12px;
+        margin-bottom: 9px;
       }
 
       .gp-field label {
         display: block;
-        margin-bottom: 5px;
+        margin-bottom: 4px;
         color: var(--gp-ink);
-        font-size: 0.84rem;
+        font-size: 0.82rem;
         font-weight: 700;
       }
 
       .gp-field input,
       .gp-field textarea {
         width: 100%;
-        min-height: 42px;
-        padding: 9px 10px;
+        min-height: 38px;
+        padding: 7px 8px;
         border: 1px solid #9a8d7c;
-        border-radius: 9px;
+        border-radius: 7px;
         background: #fff;
         color: var(--gp-ink);
+        font-size: 0.88rem;
       }
 
       .gp-field textarea {
-        min-height: 82px;
+        min-height: 56px;
+        height: 56px;
         resize: vertical;
       }
 
@@ -283,15 +303,15 @@
         grid-template-columns: auto 1fr;
         gap: 8px;
         align-items: start;
-        margin: 4px 0 16px;
+        margin: 4px 0 12px;
         color: var(--gp-muted);
-        font-size: 0.82rem;
-        line-height: 1.35;
+        font-size: 0.76rem;
+        line-height: 1.3;
       }
 
       .gp-checkbox input {
-        width: 17px;
-        height: 17px;
+        width: 16px;
+        height: 16px;
         margin: 1px 0 0;
         accent-color: var(--gp-green);
       }
@@ -301,7 +321,7 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-height: 44px;
+        min-height: 38px;
         border-radius: 999px;
         font-weight: 700;
         text-decoration: none;
@@ -322,10 +342,10 @@
 
       .gp-form-note,
       .gp-form-error {
-        margin: 10px 0 0;
+        margin: 7px 0 0;
         text-align: center;
-        font-size: 0.78rem;
-        line-height: 1.35;
+        font-size: 0.72rem;
+        line-height: 1.3;
       }
 
       .gp-form-note {
@@ -339,64 +359,115 @@
       }
 
       .gp-actions {
-        margin-top: 18px;
+        margin-top: 0;
       }
 
       .gp-button {
-        padding: 0 17px;
+        padding: 0 15px;
         border: 1px solid rgba(126, 46, 36, 0.28);
         background: #efdcc6;
         color: var(--gp-ink);
-        font-size: 0.9rem;
+        font-size: 0.82rem;
+      }
+
+      @media (min-width: 901px) and (max-height: 650px) {
+        .gp-shell {
+          gap: 4px;
+          padding: 4px 0;
+        }
+
+        .gp-hero {
+          padding: 4px 12px;
+        }
+
+        .gp-pepper {
+          width: 44px;
+          height: 44px;
+        }
+
+        .gp-panel {
+          padding: 8px 10px;
+        }
+
+        .gp-menu-panel {
+          column-gap: 10px;
+        }
+
+        .gp-menu-section + .gp-menu-section {
+          padding-left: 10px;
+        }
+
+        .gp-section-note,
+        .gp-form-note {
+          display: none;
+        }
+
+        .gp-field {
+          margin-bottom: 3px;
+        }
+
+        .gp-field textarea {
+          min-height: 32px;
+          height: 32px;
+        }
       }
 
       @media (max-width: 900px) {
-        .gp-hero {
-          grid-template-columns: auto 1fr;
+        body {
+          height: auto;
+          min-height: 100vh;
+          overflow-x: hidden;
+          overflow-y: auto;
         }
 
-        .gp-deadline {
-          grid-column: 1 / -1;
+        .gp-shell {
+          display: block;
+          width: min(100% - 16px, 880px);
+          height: auto;
+          padding: 8px 0 14px;
         }
 
         .gp-layout {
           grid-template-columns: 1fr;
+          gap: 8px;
+          margin-top: 8px;
         }
 
-        .gp-order-panel {
-          position: static;
+        .gp-menu-panel {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .gp-actions {
+          margin-top: 8px;
         }
       }
 
       @media (max-width: 600px) {
-        .gp-shell {
-          width: min(100% - 16px, 1100px);
-          padding: 10px 0 18px;
-        }
-
         .gp-hero {
           grid-template-columns: 1fr;
-          padding: 20px;
+          gap: 5px;
+          padding: 10px;
           text-align: center;
         }
 
         .gp-pepper {
-          width: 70px;
-          height: 70px;
+          width: 60px;
+          height: 60px;
           margin: 0 auto;
         }
 
         .gp-deadline {
-          grid-column: auto;
+          min-width: 0;
         }
 
-        .gp-panel {
-          padding: 20px 18px;
+        .gp-menu-panel {
+          display: block;
         }
 
-        .gp-dish {
-          grid-template-columns: 1fr;
-          gap: 12px;
+        .gp-menu-section + .gp-menu-section {
+          margin-top: 10px;
+          padding-left: 0;
+          border-left: 0;
         }
 
         .gp-field-row {
@@ -413,10 +484,12 @@
   <body>
     <main class="gp-shell">
       <header class="gp-hero">
-        <img class="gp-pepper" src="pepper.svg" alt="" />
+        <a class="gp-home-link" href="/" aria-label="Green Paprika home">
+          <img class="gp-pepper" src="green-pepper.jpg" alt="" />
+        </a>
         <div>
           <p class="gp-eyebrow">Green Paprika · Plant based</p>
-          <h1>Friday Menu</h1>
+          <h1>Friday Delivery Menu</h1>
           <p class="gp-hero-copy">
             Home made wholesome Hungarian food, delivered fresh on Friday.
           </p>
@@ -433,65 +506,31 @@
         method="POST"
         class="gp-layout"
       >
-        <section class="gp-panel" aria-labelledby="menuHeading">
+        <section class="gp-panel gp-menu-panel" aria-labelledby="menuHeading">
           <h2 id="menuHeading" class="gp-section-heading">Choose your dishes</h2>
-          <p class="gp-section-note">Set a quantity for each size you would like to order.</p>
+          <p class="gp-section-note">Use each spinner to set the quantity. Bundle prices are applied automatically.</p>
 
           <section class="gp-menu-section" aria-labelledby="mainsHeading">
             <h2 id="mainsHeading" class="gp-category">Mains</h2>
 
             <article class="gp-dish">
-              <div>
-                <h3>Mushroom, root vegetable &amp; seitan goulash</h3>
-                <p>Rich paprika stew with seitan, served with nokedli and cashew sour cream.</p>
-              </div>
-              <div class="gp-options">
-                <div class="gp-option">
-                  <label for="goulash1">1 portion · £14.50</label>
-                  <input id="goulash1" name="Goulash — 1 portion" type="number" min="0" max="20" value="0" data-price="14.5" data-label="Goulash — 1 portion" />
-                </div>
-                <div class="gp-option">
-                  <label for="goulash2">2 portions · £27</label>
-                  <input id="goulash2" name="Goulash — 2 portions" type="number" min="0" max="20" value="0" data-price="27" data-label="Goulash — 2 portions" />
-                </div>
-                <div class="gp-option">
-                  <label for="goulash4">4 portions · £50</label>
-                  <input id="goulash4" name="Goulash — 4 portions" type="number" min="0" max="20" value="0" data-price="50" data-label="Goulash — 4 portions" />
-                </div>
+              <div class="gp-option">
+                <label for="goulashQty">Goulash with nokedli &amp; cashew sour cream · £14.50 / portion</label>
+                <input id="goulashQty" name="Goulash quantity" type="number" min="0" max="20" value="0" data-label="Goulash — 1 portion" data-bundles="4:50,2:27,1:14.5" />
               </div>
             </article>
 
             <article class="gp-dish">
-              <div>
-                <h3>Lecsó — Hungarian green pepper stew</h3>
-                <p>Peppers, tomatoes, onions and Hungarian paprika, slowly cooked together.</p>
-              </div>
-              <div class="gp-options">
-                <div class="gp-option">
-                  <label for="lecso350">350 g · £8.50</label>
-                  <input id="lecso350" name="Lecsó — 350 g" type="number" min="0" max="20" value="0" data-price="8.5" data-label="Lecsó — 350 g" />
-                </div>
-                <div class="gp-option">
-                  <label for="lecso700">700 g · £16</label>
-                  <input id="lecso700" name="Lecsó — 700 g" type="number" min="0" max="20" value="0" data-price="16" data-label="Lecsó — 700 g" />
-                </div>
-                <div class="gp-option">
-                  <label for="lecso1400">1.4 kg · £29</label>
-                  <input id="lecso1400" name="Lecsó — 1.4 kg" type="number" min="0" max="20" value="0" data-price="29" data-label="Lecsó — 1.4 kg" />
-                </div>
+              <div class="gp-option">
+                <label for="lecsoQty">Lecsó, Hungarian green pepper stew · £8.50 / 350 g</label>
+                <input id="lecsoQty" name="Lecsó quantity" type="number" min="0" max="20" value="0" data-label="Lecsó — 350 g" data-bundles="4:29,2:16,1:8.5" />
               </div>
             </article>
 
             <article class="gp-dish">
-              <div>
-                <h3>Cabbage &amp; black pepper palacsinta</h3>
-                <p>Savoury crêpes filled with caramelised cabbage and black pepper.</p>
-              </div>
-              <div class="gp-options">
-                <div class="gp-option">
-                  <label for="cabbageCrepes">2 crêpes · £7.50</label>
-                  <input id="cabbageCrepes" name="Cabbage palacsinta — 2 crêpes" type="number" min="0" max="20" value="0" data-price="7.5" data-label="Cabbage palacsinta — 2 crêpes" />
-                </div>
+              <div class="gp-option">
+                <label for="mushroomCrepesQty">Creamed mushroom palacsinta (Hungarian crêpes) · £7.50 / 2</label>
+                <input id="mushroomCrepesQty" name="Creamed mushroom palacsinta (Hungarian crêpes) quantity" type="number" min="0" max="20" value="0" data-label="Creamed mushroom palacsinta (Hungarian crêpes) — 2" data-bundles="1:7.5" />
               </div>
             </article>
           </section>
@@ -500,66 +539,30 @@
             <h2 id="sidesHeading" class="gp-category">Sides &amp; Soups</h2>
 
             <article class="gp-dish">
-              <div>
-                <h3>Chilled sour cherry soup</h3>
-                <p>Sour cherries, gentle spice and vegan cream.</p>
-              </div>
-              <div class="gp-options">
-                <div class="gp-option">
-                  <label for="soup300">300 ml · £5.50</label>
-                  <input id="soup300" name="Sour cherry soup — 300 ml" type="number" min="0" max="20" value="0" data-price="5.5" data-label="Sour cherry soup — 300 ml" />
-                </div>
-                <div class="gp-option">
-                  <label for="soup600">600 ml · £9.50</label>
-                  <input id="soup600" name="Sour cherry soup — 600 ml" type="number" min="0" max="20" value="0" data-price="9.5" data-label="Sour cherry soup — 600 ml" />
-                </div>
+              <div class="gp-option">
+                <label for="soupQty">Chilled sour cherry soup · £5.50 / 300 ml</label>
+                <input id="soupQty" name="Sour cherry soup quantity" type="number" min="0" max="20" value="0" data-label="Sour cherry soup — 300 ml" data-bundles="2:9.5,1:5.5" />
               </div>
             </article>
 
             <article class="gp-dish">
-              <div>
-                <h3>Paprika cashew &amp; tofu spread</h3>
-                <p>Creamy, savoury spread with Hungarian paprika.</p>
-              </div>
-              <div class="gp-options">
-                <div class="gp-option">
-                  <label for="spread180">180 g · £5.50</label>
-                  <input id="spread180" name="Paprika spread — 180 g" type="number" min="0" max="20" value="0" data-price="5.5" data-label="Paprika spread — 180 g" />
-                </div>
+              <div class="gp-option">
+                <label for="spreadQty">Paprika cashew &amp; tofu spread · £5.50 / 180 g</label>
+                <input id="spreadQty" name="Paprika spread quantity" type="number" min="0" max="20" value="0" data-label="Paprika spread — 180 g" data-bundles="1:5.5" />
               </div>
             </article>
 
             <article class="gp-dish">
-              <div>
-                <h3>Caramelised cabbage strudel</h3>
-                <p>Crisp pastry filled with slowly caramelised cabbage and black pepper.</p>
-              </div>
-              <div class="gp-options">
-                <div class="gp-option">
-                  <label for="strudel">2 pieces · £8.50</label>
-                  <input id="strudel" name="Cabbage strudel — 2 pieces" type="number" min="0" max="20" value="0" data-price="8.5" data-label="Cabbage strudel — 2 pieces" />
-                </div>
+              <div class="gp-option">
+                <label for="strudelQty">Caramelised cabbage strudel · £8.50 / 2 pieces</label>
+                <input id="strudelQty" name="Cabbage strudel quantity" type="number" min="0" max="20" value="0" data-label="Cabbage strudel — 2 pieces" data-bundles="1:8.5" />
               </div>
             </article>
 
             <article class="gp-dish">
-              <div>
-                <h3>Cucumber &amp; dill salad</h3>
-                <p>Fresh cucumber in a light, creamy dill dressing.</p>
-              </div>
-              <div class="gp-options">
-                <div class="gp-option">
-                  <label for="salad150">150 g · £4.25</label>
-                  <input id="salad150" name="Cucumber salad — 150 g" type="number" min="0" max="20" value="0" data-price="4.25" data-label="Cucumber salad — 150 g" />
-                </div>
-                <div class="gp-option">
-                  <label for="salad300">300 g · £7.50</label>
-                  <input id="salad300" name="Cucumber salad — 300 g" type="number" min="0" max="20" value="0" data-price="7.5" data-label="Cucumber salad — 300 g" />
-                </div>
-                <div class="gp-option">
-                  <label for="salad600">600 g · £13.50</label>
-                  <input id="salad600" name="Cucumber salad — 600 g" type="number" min="0" max="20" value="0" data-price="13.5" data-label="Cucumber salad — 600 g" />
-                </div>
+              <div class="gp-option">
+                <label for="saladQty">Cucumber &amp; dill salad · £4.25 / 150 g</label>
+                <input id="saladQty" name="Cucumber salad quantity" type="number" min="0" max="20" value="0" data-label="Cucumber salad — 150 g" data-bundles="4:13.5,2:7.5,1:4.25" />
               </div>
             </article>
           </section>
@@ -568,32 +571,16 @@
             <h2 id="dessertsHeading" class="gp-category">Desserts</h2>
 
             <article class="gp-dish">
-              <div>
-                <h3>Chocolate &amp; chestnut mousse</h3>
-                <p>Finished with vanilla cream.</p>
-              </div>
-              <div class="gp-options">
-                <div class="gp-option">
-                  <label for="mousse1">140 g · £5.50</label>
-                  <input id="mousse1" name="Chocolate chestnut mousse — 140 g" type="number" min="0" max="20" value="0" data-price="5.5" data-label="Chocolate chestnut mousse — 140 g" />
-                </div>
-                <div class="gp-option">
-                  <label for="mousse2">2 pots · £10</label>
-                  <input id="mousse2" name="Chocolate chestnut mousse — 2 pots" type="number" min="0" max="20" value="0" data-price="10" data-label="Chocolate chestnut mousse — 2 pots" />
-                </div>
+              <div class="gp-option">
+                <label for="mousseQty">Chocolate &amp; chestnut mousse · £5.50 / 140 g pot</label>
+                <input id="mousseQty" name="Chocolate chestnut mousse quantity" type="number" min="0" max="20" value="0" data-label="Chocolate chestnut mousse — 140 g pot" data-bundles="2:10,1:5.5" />
               </div>
             </article>
 
             <article class="gp-dish">
-              <div>
-                <h3>Chocolate &amp; walnut palacsinta</h3>
-                <p>Sweet Hungarian crêpes with chocolate and walnuts.</p>
-              </div>
-              <div class="gp-options">
-                <div class="gp-option">
-                  <label for="chocolateCrepes">2 crêpes · £7.50</label>
-                  <input id="chocolateCrepes" name="Chocolate walnut palacsinta — 2 crêpes" type="number" min="0" max="20" value="0" data-price="7.5" data-label="Chocolate walnut palacsinta — 2 crêpes" />
-                </div>
+              <div class="gp-option">
+                <label for="chocolateCrepesQty">Chocolate &amp; walnut palacsinta (Hungarian crêpes) · £7.50 / 2</label>
+                <input id="chocolateCrepesQty" name="Chocolate walnut palacsinta (Hungarian crêpes) quantity" type="number" min="0" max="20" value="0" data-label="Chocolate walnut palacsinta (Hungarian crêpes) — 2" data-bundles="1:7.5" />
               </div>
             </article>
           </section>
@@ -620,24 +607,26 @@
             </div>
           </div>
 
-          <div class="gp-field">
-            <label for="customerEmail">Email</label>
-            <input id="customerEmail" name="email" type="email" autocomplete="email" required />
+          <div class="gp-field-row">
+            <div class="gp-field">
+              <label for="customerEmail">Email</label>
+              <input id="customerEmail" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="gp-field">
+              <label for="postcode">Postcode</label>
+              <input id="postcode" name="postcode" type="text" autocomplete="postal-code" required />
+            </div>
           </div>
 
-          <div class="gp-field">
-            <label for="deliveryAddress">Delivery address</label>
-            <textarea id="deliveryAddress" name="delivery_address" autocomplete="street-address" required></textarea>
-          </div>
-
-          <div class="gp-field">
-            <label for="postcode">Postcode</label>
-            <input id="postcode" name="postcode" type="text" autocomplete="postal-code" required />
-          </div>
-
-          <div class="gp-field">
-            <label for="orderNotes">Allergies or order notes</label>
-            <textarea id="orderNotes" name="allergies_and_notes"></textarea>
+          <div class="gp-field-row">
+            <div class="gp-field">
+              <label for="deliveryAddress">Delivery address</label>
+              <textarea id="deliveryAddress" name="delivery_address" autocomplete="street-address" required></textarea>
+            </div>
+            <div class="gp-field">
+              <label for="orderNotes">Allergies or order notes</label>
+              <textarea id="orderNotes" name="allergies_and_notes"></textarea>
+            </div>
           </div>
 
           <label class="gp-checkbox" for="orderAgreement">
@@ -663,11 +652,25 @@
 
     <script>
       const form = document.getElementById("orderForm");
-      const quantityInputs = [...document.querySelectorAll("[data-price]")];
+      const quantityInputs = [...document.querySelectorAll("[data-bundles]")];
       const totalOutput = document.getElementById("orderTotal");
       const summaryInput = document.getElementById("orderSummary");
       const subtotalInput = document.getElementById("foodSubtotal");
       const formError = document.getElementById("formError");
+
+      function calculateLineTotal(quantity, bundlePricing) {
+        let remaining = quantity;
+        let total = 0;
+
+        bundlePricing.split(",").forEach((bundle) => {
+          const [size, price] = bundle.split(":").map(Number);
+          const bundleCount = Math.floor(remaining / size);
+          total += bundleCount * price;
+          remaining %= size;
+        });
+
+        return total;
+      }
 
       function updateOrder() {
         let total = 0;
@@ -675,7 +678,7 @@
 
         quantityInputs.forEach((input) => {
           const quantity = Math.max(0, Number.parseInt(input.value, 10) || 0);
-          const lineTotal = quantity * Number(input.dataset.price);
+          const lineTotal = calculateLineTotal(quantity, input.dataset.bundles);
 
           if (quantity > 0) {
             total += lineTotal;

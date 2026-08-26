@@ -9,8 +9,8 @@
       content="Green Paprika recipes published in The Guardian, including vegan and plant-based dishes with almonds, beans, tomatoes, walnuts, aubergine, squash, and miso."
     />
     <link rel="canonical" href="https://green-paprika.com/guardian-recipes.html" />
-    <link rel="icon" type="image/svg+xml" href="pepper.svg" />
-    <link rel="apple-touch-icon" href="pepper.svg" />
+    <link rel="icon" type="image/jpeg" href="green-pepper.jpg" />
+    <link rel="apple-touch-icon" href="green-pepper.jpg" />
     <style>
       :root {
         --gp-paper: #f7e9d5;
@@ -75,6 +75,16 @@
         width: 96px;
         height: 96px;
         margin: 0 auto 16px;
+      }
+
+      .gp-home-link {
+        display: inline-flex;
+        border-radius: 50%;
+      }
+
+      .gp-home-link:focus-visible {
+        outline: 3px solid var(--gp-accent);
+        outline-offset: 3px;
       }
 
       .gp-section-label {
@@ -207,7 +217,9 @@
     <main class="gp-shell">
       <section class="gp-layout">
         <aside class="gp-panel gp-intro-panel">
-          <img class="gp-pepper" src="pepper.svg" alt="" />
+          <a class="gp-home-link" href="/" aria-label="Green Paprika home">
+            <img class="gp-pepper" src="green-pepper.jpg" alt="" />
+          </a>
           <p class="gp-section-label">Published Recipes</p>
           <h1>Green Paprika in The Guardian</h1>
           <p class="gp-body-copy">
@@ -271,6 +283,7 @@
           </ul>
 
           <div class="gp-actions">
+            <a class="gp-button" href="chapel-market-kitchen-popup.html">Chapel Market Supper</a>
             <a class="gp-button" href="friday-menu.html">Friday Takeaway Menu</a>
           </div>
         </section>
